@@ -3,6 +3,7 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 const ParkingLot = require("./models/parkingLot");
 const dmsToDecimal = require("./util");
+require("dotenv").config();
 
 
 const app = express();
@@ -13,7 +14,7 @@ app.use(express.json());
 
 // MongoDB connection
 mongoose
-  .connect("mongodb+srv://haengboghage17:WIlcWz4rmts9DNEP@cluster0.izfuwro.mongodb.net/parking-management", {
+  .connect(process.env.DB_URL, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
